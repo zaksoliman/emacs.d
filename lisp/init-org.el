@@ -25,6 +25,28 @@
 (when *is-a-mac*
   (maybe-require-package 'grab-mac-link))
 
+
+(defun my/org-roam-load ()
+  (interactive)
+  (add-to-list 'load-path "~/dotfiles/emacs.d/site-lisp/org-roam/")
+  (load-library "org-roam")
+  ;; I have trouble with Ripgrep on Windows
+  ;; Commit 0163461f adds default user option for
+  ;; sections. You no longer need to set the variable explicitly
+  ;; (setq org-roam-mode-sections
+  ;;      (list #'org-roam-backlinks-insert-section
+  ;;            #'org-roam-reflinks-insert-section))
+  ;;#'org-roam-unlinked-references-insert-section))
+  (setq org-roam-directory "~/Documents/notes/org-roam/zettels/")
+  (setq org-roam-dailies-directory "~/Documents/notes/org-roam/daily/")
+  (setq org-roam-file-extensions '("org"))
+  (org-roam-setup)
+  (define-key global-map (kbd "C-c n /") #'org-roam-node-find)
+  (define-key global-map (kbd "C-c n c") #'org-roam-capture)
+  (define-key global-map (kbd "C-c n i") #'org-roam-node-insert)
+  (define-key global-map (kbd "C-c n r") #'org-roam-buffer-toggle))
+
+
 (maybe-require-package 'org-cliplink)
 
 (define-key global-map (kbd "C-c l") 'org-store-link)
