@@ -1,0 +1,3 @@
+[submodule "site-lisp/org-roam"]
+	path = site-lisp/org-roam
+	url = https://github.com/org-roam/org-roam.git
