@@ -12,7 +12,10 @@
                 ("SConscript\\'" . python-mode))
               auto-mode-alist))
 
-(setq python-shell-interpreter "python3")
+(setq python-shell-interpreter "python")
+
+(when (executable-find "ipython")
+  (setq python-shell-interpreter "ipython"))
 
 (require-package 'pip-requirements)
 
