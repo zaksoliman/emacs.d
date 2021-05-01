@@ -28,7 +28,7 @@
 
 (defun my/org-roam-load ()
   (interactive)
-  (add-to-list 'load-path "~/dotfiles/emacs.d/site-lisp/org-roam/")
+  ;;(add-to-list 'load-path "~/dotfiles/emacs.d/site-lisp/org-roam/")
   (load-library "org-roam")
   ;; I have trouble with Ripgrep on Windows
   ;; Commit 0163461f adds default user option for
